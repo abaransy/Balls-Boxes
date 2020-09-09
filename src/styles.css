@@ -68,10 +68,6 @@ body {
     position: absolute; 
 }
 
-.dragable--mirror {
-    z-index: 500;
-}
-
 #first_dragable_ball {
     left: 2.5rem; 
 }
@@ -83,7 +79,6 @@ body {
 .draggable-source--is-dragging {
     visibility: hidden; 
 }
-
 
 .inbox {
     bottom: 23.5%;  
