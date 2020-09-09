@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("const test = () => {\n  console.log('test');\n};\n\ntest();\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("document.addEventListener(\"DOMContentLoaded\", () => {\n  let dragableBalls = Array.from(document.getElementsByClassName(\"dragable\"));\n  let offset = [0, 0];\n  let isDown = false;\n  let currentBall;\n  dragableBalls.forEach(dragableBall => {\n    dragableBall.addEventListener('mousedown', e => {\n      isDown = true;\n      currentBall = e.currentTarget;\n      offset = [dragableBall.offsetLeft - e.clientX, dragableBall.offsetTop - e.clientY];\n    });\n  });\n  document.addEventListener('mouseup', () => {\n    isDown = false;\n  });\n  document.addEventListener(\"mousemove\", e => {\n    e.preventDefault();\n\n    if (isDown) {\n      console.log(currentBall);\n      currentBall.style.left(e.clientX + offset[0] + \"px\");\n      currentBall.style.top(e.clientY + offset[1] + \"px\");\n    }\n  });\n}); // dragableBall => dragableBall.addEventListener('mousedown', (e) => {\n//     isDown = true;\n//     offset = [\n//         dragableBall.offsetLeft - e.clientX,\n//         dragableBall.offsetTop - e.clientY\n//     ];\n// }, true));\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

@@ -17,13 +17,14 @@ h1, h2, p, strong, em, a {
 
 body {
     display: flex; 
-    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
 }
 
 .scene {
     height: 35rem; 
     width: 45rem;
-    position: absolute; 
+    position: relative; 
     top: 10%;
     display: flex; 
     flex-direction: column; 
@@ -44,4 +45,57 @@ body {
     height: 10rem;
     position: relative; 
     bottom: 15rem;  
+}
+
+.balls {
+    position: absolute; 
+    top: 25%; 
+    z-index: 1;
+    width: 36rem; 
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+}
+
+.ball {
+    height: 7rem; 
+    width: 7rem; 
+}
+
+.inbox {
+    position: absolute;
+    bottom: 24%;  
+    z-index: 2;
+}
+
+.dragable {
+    position: absolute; 
+}
+
+#first_dragable_ball {
+    left: 2.5rem; 
+}
+
+#third_dragable_ball {
+    right: 2.5rem; 
+}
+
+#first_box_ball, #second_box_ball, #third_box_ball {
+    visibility: hidden;
+}
+
+
+.boxes {
+    position: relative; 
+    top: -11rem; 
+    z-index: 1;
+    width: 30rem; 
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+}
+
+.box {
+    height: 15rem; 
+    width: 12rem; 
 }
