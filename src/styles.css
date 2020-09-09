@@ -1,0 +1,47 @@
+html, body, section, article,
+h1, h2, p, strong, em, a {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    outline: 0;
+    height: 100%; 
+    width: 100%; 
+    box-sizing: inherit;
+    font-family: 'Roboto';
+    text-decoration: inherit;
+    text-align: inherit;
+    font-weight: normal;
+    color: inherit;
+    background: transparent;
+}
+
+body {
+    display: flex; 
+    justify-content: center; 
+}
+
+.scene {
+    height: 35rem; 
+    width: 45rem;
+    position: absolute; 
+    top: 10%;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    overflow: hidden;
+    border: 0.1rem solid #133074;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0.2rem 1rem #133074; 
+} 
+
+.background_grid {
+    width: 100% ; 
+    height: 40rem;
+}
+
+.ground {
+    width: 100%;  
+    height: 10rem;
+    position: relative; 
+    bottom: 15rem;  
+}
