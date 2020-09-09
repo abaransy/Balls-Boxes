@@ -60,12 +60,7 @@ body {
 .ball {
     height: 7rem; 
     width: 7rem; 
-}
-
-.inbox {
-    position: absolute;
-    bottom: 24%;  
-    z-index: 2;
+    outline: none; 
 }
 
 .dragable {
@@ -80,10 +75,23 @@ body {
     right: 2.5rem; 
 }
 
-#first_box_ball, #second_box_ball, #third_box_ball {
+.draggable-source--is-dragging {
+    visibility: hidden; 
+}
+
+.draggable--over {
     visibility: hidden;
 }
 
+.inbox {
+    position: absolute;
+    bottom: 24%;  
+    z-index: 2;
+}
+
+#first_box_ball, #second_box_ball, #third_box_ball {
+    visibility: hidden;
+}
 
 .boxes {
     position: relative; 

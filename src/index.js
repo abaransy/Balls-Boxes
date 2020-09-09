@@ -1,37 +1,25 @@
+import Draggable from '@shopify/draggable/lib/draggable';
+
 document.addEventListener("DOMContentLoaded", () => {    
-    let dragableBalls = Array.from(document.getElementsByClassName("dragable")); 
-    let offset = [0, 0]; 
-    let isDown = false; 
-    let currentBall; 
-    
-    dragableBalls.forEach(dragableBall => {
-        dragableBall.addEventListener('mousedown', (e) => {
-        isDown = true;
-        currentBall = e.currentTarget; 
-        offset = [
-            dragableBall.offsetLeft - e.clientX,
-            dragableBall.offsetTop - e.clientY
-        ];
-    })});
-
-    document.addEventListener('mouseup', () => {
-        isDown = false;
+    const ballsContainer = Array.from(document.getElementsByClassName("balls"))[0]; 
+    let draggableBalls = new Draggable(ballsContainer, { 
+        draggable: 'img', 
     });
+    
+    const triggerMouseEvent = (node, eventType) => {
+        const clickEvent = document.createEvent('MouseEvents');
+        clickEvent.initEvent(eventType, true, true);
+        node.dispatchEvent(clickEvent);
+    }
 
-    document.addEventListener("mousemove", (e) => {
-        e.preventDefault(); 
-        if (isDown) {
-            console.log(currentBall)
-            currentBall.style.left(e.clientX + offset[0] + "px");
-            currentBall.style.top(e.clientY + offset[1] + "px");
-        }
-    })
+    const handleDragging = (e) => {
+        if (e.sensorEvent.data.clientX < 220  || 
+            e.sensorEvent.data.clientX > 850 || 
+            e.sensorEvent.data.clientY < 107 ||
+            e.sensorEvent.data.clientY > 500
+        ) triggerMouseEvent(document.body, "mouseup"); 
+    }
+
+
+    draggableBalls.on('drag:move', (e) => handleDragging(e))
 })
-
-// dragableBall => dragableBall.addEventListener('mousedown', (e) => {
-//     isDown = true;
-//     offset = [
-//         dragableBall.offsetLeft - e.clientX,
-//         dragableBall.offsetTop - e.clientY
-//     ];
-// }, true));
