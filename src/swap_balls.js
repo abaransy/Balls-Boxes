@@ -1,5 +1,5 @@
-const swapBalls = (childA, childB) => {
-    const radius = (childB.getBoundingClientRect().x - childA.getBoundingClientRect().x) / 2; 
+export const swapBalls = (firstBall, secondBall) => {
+    const radius = (secondBall.getBoundingClientRect().x - firstBall.getBoundingClientRect().x) / 2; 
     let top = 0.1; 
     let left = 0; 
     let right = 0; 
@@ -12,10 +12,10 @@ const swapBalls = (childA, childB) => {
             right += 3;
             top = Math.sqrt( (2 * radius * left) - Math.pow(left, 2) );
 
-            childA.style.top = -top + "px";
-            childA.style.left = left + "px";
-            childB.style.top = -top + "px";
-            childB.style.right = right + "px";
+            firstBall.style.top = -top + "px";
+            firstBall.style.left = left + "px";
+            secondBall.style.top = -top + "px";
+            secondBall.style.right = right + "px";
         }
     }
 

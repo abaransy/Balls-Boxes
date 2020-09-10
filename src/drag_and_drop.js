@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    let scene = document.getElementsByClassName("scene")[0]; 
+    let placings = {};
     let firstDraggable = new PlainDraggable(document.getElementById("first_draggable_ball"));
     let secondDraggable = new PlainDraggable(document.getElementById("second_draggable_ball"));
     let thirdDraggable = new PlainDraggable(document.getElementById("third_draggable_ball"));
@@ -20,10 +22,30 @@ document.addEventListener("DOMContentLoaded", () => {
         center: true
     }
     ]
+    
+    const updatePlacings = (ballId) => {
+        let ball = document.getElementById(ballId); 
+        let ballX = ball.getBoundingClientRect().x
+        let ballY = ball.getBoundingClientRect().y
+        let sceneX = scene.getBoundingClientRect().x
+        let sceneY = scene.getBoundingClientRect().y
+        let deltaX = sceneX - ballX; 
+        let deltaY = sceneY - ballY; 
+
+        if (deltaY === -368.59375) {
+            if (deltaX === -111.59375)  {
+                placings[ballId] = 1;
+            } else if (deltaX === -303.59375) {
+                placings[ballId] = 2; 
+            } else if (deltaX === -495.59375) {
+                placings[ballId] = 3
+            }
+        }
+    }
 
     draggables.forEach(draggable => {
         draggable.containment = container; 
         draggable.snap = targets; 
+        draggable.onDragEnd = () => updatePlacings(draggable.element.id)
     }); 
-
 })
