@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/styles.css">
+    <script src="./node_modules/plain-draggable/plain-draggable.min.js"></script>
     <script src="dist/main.js"></script>
     <title>Document</title>
 </head>
@@ -12,20 +13,17 @@
         <img class="background_grid" src="./src/images/background_grid.jpg" alt="">
         <img class="ground" src="./src/images/ground.jpg" alt="">
     </div>
-    <div class="balls">
-        <img class="dragable ball" id="first_dragable_ball" src="./src/images/ball.png">
-        <img class="dragable ball" id="second_dragable_ball" src="./src/images/ball.png">
-        <img class="dragable ball" id="third_dragable_ball" src="./src/images/ball.png">
-    </div>
-    <div class="inbox balls">
-        <img class="ball" id="first_box_ball" src="./src/images/ball.png" >
-        <img class="ball" id="second_box_ball" src="./src/images/ball.png" >
-        <img class="ball" id="third_box_ball" src="./src/images/ball.png" >
+    <div class="balls_container">
+        <div class="balls">
+            <img class="ball" id="first_dragable_ball" src="./src/images/ball.png">
+            <img class="ball" id="second_dragable_ball" src="./src/images/ball.png">
+            <img class="ball" id="third_dragable_ball" src="./src/images/ball.png">
+        </div>
     </div>
     <div class="boxes">
-        <img class="box" src="./src/images/box.png" >
-        <img class="box" src="./src/images/box.png" >
-        <img class="box" src="./src/images/box.png" >
+        <img class="box dropzone" src="./src/images/box.png" >
+        <img class="box dropzone" src="./src/images/box.png" >
+        <img class="box dropzone" src="./src/images/box.png" >
     </div>
 </body>
 </html>

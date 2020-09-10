@@ -48,50 +48,37 @@ body {
 }
 
 .balls {
-    position: absolute; 
+    position: relative; 
+    top: -20rem;
+    width: 36rem; 
     display: flex;
     justify-content: space-around; 
-    align-items: center;
-    width: 36.2rem;
-    z-index: 1;
-    top: 30%; 
-    left: 15.86rem; 
+
 }
 
 .ball {
+    position: relative; 
+    z-index: 500;
     height: 7rem; 
     width: 7rem; 
     outline: none; 
 }
 
-.dragable {
-    position: absolute; 
+.snap_box {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
 }
 
-#first_dragable_ball {
-    left: 2.5rem; 
-}
-
-#third_dragable_ball {
-    right: 2.5rem; 
-}
-
-.draggable-source--is-dragging {
-    visibility: hidden; 
-}
-
-.inbox {
-    bottom: 23.5%;  
-    z-index: 2;
-}
-
-#first_box_ball, #second_box_ball, #third_box_ball {
-    visibility: hidden; 
+.snap {
+    height: 1rem; 
+    width: 1rem; 
+    background-color: red;
 }
 
 .boxes {
     position: relative; 
-    top: -11rem; 
+    top: -17rem; 
     width: 30rem; 
     display: flex;
     justify-content: space-around; 

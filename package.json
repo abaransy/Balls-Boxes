@@ -19,6 +19,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "@shopify/draggable": "^1.0.0-beta.8"
+    "@shopify/draggable": "^1.0.0-beta.8",
+    "plain-draggable": "^2.5.12"
   }
 }
