@@ -22,7 +22,7 @@ body {
 }
 
 .scene {
-    height: 35rem; 
+    height: 38rem; 
     width: 45rem;
     position: relative; 
     top: 10%;
@@ -42,7 +42,7 @@ body {
 
 .ground {
     width: 100%;  
-    height: 10rem;
+    height: 13rem;
     position: relative; 
     bottom: 15rem;  
 }
@@ -53,7 +53,7 @@ body {
     width: 36rem; 
     display: flex;
     justify-content: space-around; 
-
+    transform-origin: 50% 50%;
 }
 
 .ball {
