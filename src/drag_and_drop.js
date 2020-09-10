@@ -6,21 +6,22 @@ document.addEventListener("DOMContentLoaded", () => {
     let thirdDraggable = new PlainDraggable(document.getElementById("third_draggable_ball"));
     let draggables = [firstDraggable, secondDraggable, thirdDraggable]; 
     let container = document.getElementsByClassName("scene")[0]; 
-    let targets = [{
+    let targets = [
+        {
         x: 166,
         y: 423,
         center: true
-    }, 
-    {
-        x: 358,
-        y: 423,
-        center: true
-    }, 
-    {
-        x: 550,
-        y: 423,
-        center: true
-    }
+        }, 
+        {
+            x: 358,
+            y: 423,
+            center: true
+        }, 
+        {
+            x: 550,
+            y: 423,
+            center: true
+        }
     ]
     
     const updatePlacings = (ballId) => {

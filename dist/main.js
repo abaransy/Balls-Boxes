@@ -105,7 +105,18 @@ eval("document.addEventListener(\"DOMContentLoaded\", () => {\n  let scene = doc
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _drag_and_drop__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./drag_and_drop */ \"./src/drag_and_drop.js\");\n/* harmony import */ var _drag_and_drop__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_drag_and_drop__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _swap_balls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./swap_balls */ \"./src/swap_balls.js\");\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _drag_and_drop__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./drag_and_drop */ \"./src/drag_and_drop.js\");\n/* harmony import */ var _drag_and_drop__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_drag_and_drop__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _swap_balls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./swap_balls */ \"./src/swap_balls.js\");\n/* harmony import */ var _start_game_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./start_game_modal */ \"./src/start_game_modal.js\");\n/* harmony import */ var _start_game_modal__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_start_game_modal__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/start_game_modal.js":
+/*!*********************************!*\
+  !*** ./src/start_game_modal.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("const startGameModal = document.getElementById(\"game_start_modal\");\nconst startButton = document.getElementById(\"start_button\");\nconst secondsHtml = document.getElementById(\"seconds\");\nconst seconds = 0;\n\nconst setCountDown = () => {\n  const handleSeconds = () => {\n    if (seconds === 0) {\n      clearInterval(interval);\n      startGameModal.style.display = \"none\";\n    } else {\n      seconds -= 1;\n      secondsHtml.innerHTML = seconds;\n    }\n  };\n\n  let interval = setInterval(handleSeconds, 1000);\n};\n\nstartButton.onclick = setCountDown;\n\n//# sourceURL=webpack:///./src/start_game_modal.js?");
 
 /***/ }),
 
@@ -117,7 +128,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dra
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"swapBalls\", function() { return swapBalls; });\nconst swapBalls = (firstBall, secondBall) => {\n  const radius = (secondBall.getBoundingClientRect().x - firstBall.getBoundingClientRect().x) / 2;\n  let top = 0.1;\n  let left = 0;\n  let right = 0;\n\n  const frame = () => {\n    if (top == 0) {\n      clearInterval(id);\n    } else {\n      left += 3;\n      right += 3;\n      top = Math.sqrt(2 * radius * left - Math.pow(left, 2));\n      firstBall.style.top = -top + \"px\";\n      firstBall.style.left = left + \"px\";\n      secondBall.style.top = -top + \"px\";\n      secondBall.style.right = right + \"px\";\n    }\n  };\n\n  let id = setInterval(frame, 1);\n};\n\n//# sourceURL=webpack:///./src/swap_balls.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"swapBalls\", function() { return swapBalls; });\nconst swapBalls = (firstBall, secondBall) => {\n  const radius = (secondBall.getBoundingClientRect().x - firstBall.getBoundingClientRect().x) / 2;\n  let top = 0.1;\n  let left = 0;\n  let right = 0;\n\n  const frame = () => {\n    if (top == 0) {\n      clearInterval(interval);\n    } else {\n      left += 3;\n      right += 3;\n      top = Math.sqrt(2 * radius * left - Math.pow(left, 2));\n      firstBall.style.top = -top + \"px\";\n      firstBall.style.left = left + \"px\";\n      secondBall.style.top = -top + \"px\";\n      secondBall.style.right = right + \"px\";\n    }\n  };\n\n  let interval = setInterval(frame, 1);\n};\n\n//# sourceURL=webpack:///./src/swap_balls.js?");
 
 /***/ })
 

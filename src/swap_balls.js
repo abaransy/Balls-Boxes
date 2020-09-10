@@ -6,7 +6,7 @@ export const swapBalls = (firstBall, secondBall) => {
 
     const frame = () => {
         if (top == 0) {
-            clearInterval(id);
+            clearInterval(interval);
         } else {
             left += 3; 
             right += 3;
@@ -19,6 +19,6 @@ export const swapBalls = (firstBall, secondBall) => {
         }
     }
 
-    let id = setInterval(frame, 1);
+    let interval = setInterval(frame, 1);
 }
   
