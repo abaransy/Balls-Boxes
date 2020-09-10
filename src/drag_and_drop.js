@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     draggables.forEach(draggable => {
         draggable.containment = container; 
         draggable.snap = targets; 
+        draggable.zIndex = 2; 
         draggable.onDragEnd = () => updatePlacings(draggable.element.id)
     }); 
 })

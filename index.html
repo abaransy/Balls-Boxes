@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <script src="./node_modules/plain-draggable/plain-draggable.min.js"></script>
     <script src="dist/main.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <div id="startGameModal">
-            <span id="seconds">3</span>
+    <div id="start_game_modal">
+        <div class= "time_and_start">
             <button id="start_button">Begin</button>
+            <span id="seconds"></span>
+        </div>
     </div>
     <div class="scene">
         <img class="background_grid" src="./src/images/background_grid.jpg" alt="">
