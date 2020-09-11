@@ -1,3 +1,5 @@
+import { evaluatePlacings}  from './game'; 
+
 document.addEventListener("DOMContentLoaded", () => {
     let scene = document.getElementsByClassName("scene")[0]; 
     let placings = {};
@@ -42,6 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 placings[ballId] = 3
             }
         }
+        // console.log(evaluatePlacings); 
+        if (Object.keys(placings).length === 3) evaluatePlacings(); 
     }
 
     draggables.forEach(draggable => {

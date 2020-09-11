@@ -1,4 +1,7 @@
-export const swapBalls = (firstBall, secondBall) => {
+export const swapBalls = (firstBallId, secondBallId) => {
+    const firstBall = document.getElementById(firstBallId); 
+    const secondBall = document.getElementById(secondBallId); 
+
     const radius = (secondBall.getBoundingClientRect().x - firstBall.getBoundingClientRect().x) / 2; 
     let top = 0.1; 
     let left = 0; 

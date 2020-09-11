@@ -14,6 +14,8 @@ let level1 = {
     }
 }
 
+let levels = [level1]
+export default levels; 
 // let level2 = {
 //     instructions: [
 //         [firstBallId, secondBallId], 
