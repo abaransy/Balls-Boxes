@@ -5,7 +5,7 @@ import { loadBalls } from './drag_and_drop';
 let currLevelIdx = 0
 let currLevel = levels[currLevelIdx]; 
 let score; 
-let ballElements; 
+let balls; 
 let modal; 
 let levelBox; 
 
@@ -15,39 +15,50 @@ const resetBallsPosition = (balls) => {
         ball.style.right = "0px";
         ball.style.left = "0px";
         ball.style.bottom = "0px";
-        ball.style.transform = "none"
+        ball.style.transform = "none";
     });
 }
 
-export const play = (startGameModal, level) => {
-    ballElements = loadBalls();
-    modal = modal || startGameModal; 
-    levelBox = levelBox || level; 
+export const play = () => {
+    balls = loadBalls();
+    modal = document.getElementById("start_game_modal"); 
+    levelBox = document.getElementById("level"); 
 
-    level.style.visibility = "visible"; 
-    level.innerHTML = `Level ${currLevelIdx + 1}`; 
-    startGameModal.style.opacity = "0"; 
+    levelBox.style.visibility = "visible"; 
+    levelBox.innerHTML = `Level ${currLevelIdx + 1}`; 
+    modal.style.opacity = "0"; 
 
     let instructions = currLevel.instructions; 
     let pairIdx = 0; 
-    let pair = instructions[pairIdx]; 
-
+    
     const shuffleBalls = () => {
         if (pairIdx === instructions.length) {
             clearInterval(interval); 
-            resetBallsPosition(ballElements); 
-            startGameModal.style.display = "none";
+            resetBallsPosition(balls); 
+            modal.style.display = "none";
         } else {
+            let pair = instructions[pairIdx]; 
             swapBalls(pair[0], pair[1]); 
+            resetBallsPosition(balls); 
         }
     }
 
     let interval = setInterval(() => {
         shuffleBalls();
         pairIdx += 1; 
-    }, 1000);
+    }, 1500);
 }
 
+const handleLoss = () => {
+
+}
+
+const handleWin = () => {
+    currLevelIdx++;
+    currLevel = levels[currLevelIdx];
+    resetBallsPosition(balls);
+    play(modal, levelBox); 
+}
 
 export const evaluatePlacings = (placings) => {
     let lost = false; 
@@ -59,11 +70,8 @@ export const evaluatePlacings = (placings) => {
     }
 
     if (lost) {
-        console.log('lost'); 
+        handleLoss(); 
     } else {
-        currLevelIdx++;
-        currLevel = levels[currLevelIdx]; 
-        resetBallsPosition(ballElements);
-        play(modal, levelBox); 
+        handleWin(); 
     }
 }

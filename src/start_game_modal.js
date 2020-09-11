@@ -4,7 +4,7 @@ import levels from './levels';
 document.addEventListener('DOMContentLoaded', () => {
     const level = document.getElementById('level'); 
     level.style.visibility = "hidden"; 
-    const startGameModal = document.getElementById("start_game_modal"); 
+    
     const startButton = document.getElementById("start_button"); 
     const secondsHtml = document.getElementById("seconds"); 
     let seconds; 
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const handleSeconds = () => {
             if (seconds === 1) {
                 clearInterval(interval); 
-                play(startGameModal, level);  
+                play();  
             } else { 
                 seconds -= 1; 
                 secondsHtml.innerHTML = seconds;
