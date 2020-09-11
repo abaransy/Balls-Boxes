@@ -27,6 +27,7 @@ export const play = () => {
     levelBox.style.visibility = "visible"; 
     levelBox.innerHTML = `Level ${currLevelIdx + 1}`; 
     modal.style.opacity = "0"; 
+    modal.style.visibility = "visible"; 
 
     let instructions = currLevel.instructions; 
     let pairIdx = 0; 
@@ -35,7 +36,7 @@ export const play = () => {
         if (pairIdx === instructions.length) {
             clearInterval(interval); 
             resetBallsPosition(balls); 
-            modal.style.display = "none";
+            modal.style.visibility = "hidden";
         } else {
             let pair = instructions[pairIdx]; 
             swapBalls(pair[0], pair[1]); 
