@@ -53,8 +53,9 @@ body {
   overflow: auto; 
   background-color: rgba(0,0,0, 0.4);
   display: flex; 
-  justify-content: center;
-  align-items: flex-start; 
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
   transition: 0.5s all;
 }
 
@@ -73,6 +74,20 @@ body {
     height: 3rem;
     border-radius: 0.3rem; 
     transition: background 0.2s;
+    box-shadow: 0px 0.2rem 1rem rgb(182, 202, 182); 
+}
+
+.instructions_header {
+    height: 3rem; 
+}
+
+.instructions { 
+    height: 6rem; 
+    width: 30rem; 
+    padding: 1rem; 
+    text-align: center;
+    background-color: rgb(182, 202, 182); 
+    border-radius: 0.3rem; 
     box-shadow: 0px 0.2rem 1rem rgb(182, 202, 182); 
 }
 

@@ -10,6 +10,9 @@
     <title>Document</title>
 </head>
 <body>
+    <audio autoplay id="player">
+        <source src="./src/audio/goldberg_variations.mp3">
+    </audio>
     <div class="game_state">
         <p id="level"></p>
         <p id="score">Your Score: 0</p>
@@ -17,6 +20,12 @@
     <div class="scene">
         <div id="start_game_modal">
             <button id="start_button">Begin</button>
+            <div class="instructions">
+                <h1 class="instructions_header">Instructions</h1>
+                <p>
+                    Your goal is to place the balls in the boxes that correspond with the balls' original ordering. You have 3 seconds between each level. Good luck!
+                </p>
+            </div>
         </div> 
         <span id="seconds"></span>
         <img class="background_grid" src="./src/images/scene.png" alt="">

@@ -6,6 +6,7 @@ import { setCountDown } from './start_game_modal';
 let levels = createLevels(20); 
 let currLevelIdx = 0
 let currLevel = levels[currLevelIdx]; 
+let instructionsBox;
 let gameState;
 let score; 
 let balls; 
@@ -26,15 +27,16 @@ const resetBallsPositionAndColor = (balls) => {
 }
 
 export const play = () => {
+    instructionsBox = document.getElementsByClassName('instructions')[0]; 
     gameState = document.getElementsByClassName("game_state")[0]; 
     score = document.getElementById("score"); 
     balls = loadBalls();
     balls.forEach(ball => ball.style.transition = "none"); 
     modal = document.getElementById("start_game_modal"); 
-
     levelBox = document.getElementById("level"); 
     seconds = document.getElementById('seconds'); 
 
+    instructionsBox.style.visibility ="hidden"; 
     gameState.style.visibility = "visible"; 
     levelBox.innerHTML = `Level ${currLevelIdx + 1}`; 
     modal.style.opacity = "0"; 

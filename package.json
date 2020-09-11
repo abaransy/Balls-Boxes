@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@shopify/draggable": "^1.0.0-beta.8",
+    "file-system": "^2.2.2",
     "plain-draggable": "^2.5.12"
   }
 }
