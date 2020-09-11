@@ -1,8 +1,8 @@
 import { play } from './game'; 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const level = document.getElementById('level'); 
-    level.style.visibility = "hidden"; 
+    const gameState = document.getElementsByClassName('game_state')[0]; 
+    gameState.style.visibility = "hidden"; 
     const startButton = document.getElementById("start_button"); 
     const secondsHtml = document.getElementById("seconds"); 
 

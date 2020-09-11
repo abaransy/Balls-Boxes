@@ -5,6 +5,7 @@ import { setCountDown } from './start_game_modal';
 
 let currLevelIdx = 0
 let currLevel = levels[currLevelIdx]; 
+let gameState;
 let score; 
 let balls; 
 let modal; 
@@ -24,13 +25,16 @@ const resetBallsPositionAndColor = (balls) => {
 }
 
 export const play = () => {
+    gameState = document.getElementsByClassName("game_state")[0]; 
+    score = document.getElementById("score"); 
     balls = loadBalls();
     balls.forEach(ball => ball.style.transition = "none"); 
     modal = document.getElementById("start_game_modal"); 
+
     levelBox = document.getElementById("level"); 
     seconds = document.getElementById('seconds'); 
 
-    levelBox.style.visibility = "visible"; 
+    gameState.style.visibility = "visible"; 
     levelBox.innerHTML = `Level ${currLevelIdx + 1}`; 
     modal.style.opacity = "0"; 
     modal.style.visibility = "visible"; 
@@ -64,12 +68,13 @@ const handleLoss = () => {
 const handleWinColors = () => {
     balls.forEach(ball => {
         ball.style.transition = "0.3s all";
-        ball.style.backgroundColor = "forestgreen"; 
+        ball.style.backgroundColor = "rgb(4,128,1)"; 
         ball.style.borderColor = "darkgreen"; 
     }); 
 }
 
 const handleWin = () => {
+    score.innerHTML = `Your Score: ${1000 * (currLevelIdx + 1)}`
     currLevelIdx++;
     currLevel = levels[currLevelIdx];
     handleWinColors(); 

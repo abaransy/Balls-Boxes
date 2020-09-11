@@ -21,21 +21,26 @@ body {
     align-items: center;
 }
 
-#level {
+.game_state {
     position: absolute;
-    width: 100vw;
+    display: flex;
+    width: 10rem; 
+    height: 5rem;
+    flex-direction: column;
+    justify-content: space-between;
     margin-top: 1.5rem;  
     padding: 0.7rem 1.5rem; 
-    text-align: center; 
-    font-size: 2rem; 
-    font-weight: 700;
+    font-size: 1.5rem; 
     color: #0E1D45; 
     background-color: rgb(170, 205, 219); 
-    width: 7rem; 
-    height: 3rem;
     border-radius: 0.2rem; 
     box-shadow: 0px 0.2rem 1rem rgb(182, 194, 202); 
 }
+
+#level, #score {
+    font-weight: 700;
+}
+
 
 #start_game_modal {
   position: fixed; 
