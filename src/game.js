@@ -1,6 +1,7 @@
 import levels from './levels'; 
 import { swapBalls } from './swap_balls';  
 import { loadBalls } from './drag_and_drop'; 
+import { setCountDown } from './start_game_modal'; 
 
 let currLevelIdx = 0
 let currLevel = levels[currLevelIdx]; 
@@ -8,6 +9,7 @@ let score;
 let balls; 
 let modal; 
 let levelBox; 
+let seconds; 
 
 const resetBallsPosition = (balls) => {
     balls.forEach(ball => {
@@ -23,11 +25,13 @@ export const play = () => {
     balls = loadBalls();
     modal = document.getElementById("start_game_modal"); 
     levelBox = document.getElementById("level"); 
+    seconds = document.getElementById('seconds'); 
 
     levelBox.style.visibility = "visible"; 
     levelBox.innerHTML = `Level ${currLevelIdx + 1}`; 
     modal.style.opacity = "0"; 
     modal.style.visibility = "visible"; 
+    seconds.style.visibility = "hidden"; 
 
     let instructions = currLevel.instructions; 
     let pairIdx = 0; 
@@ -58,7 +62,7 @@ const handleWin = () => {
     currLevelIdx++;
     currLevel = levels[currLevelIdx];
     resetBallsPosition(balls);
-    play(modal, levelBox); 
+    setCountDown(seconds, false, modal, document.getElementById("start_button")); 
 }
 
 export const evaluatePlacings = (placings) => {
