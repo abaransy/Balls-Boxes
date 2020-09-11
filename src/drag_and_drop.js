@@ -35,19 +35,19 @@ export const loadBalls = () => {
         let sceneY = scene.getBoundingClientRect().y
         let deltaX = sceneX - ballX; 
         let deltaY = sceneY - ballY; 
-
-        if (deltaY === -420) {
-            if (deltaX === -112)  {
+        //y = 432.0078125
+        //x 124 316 512
+        if (deltaY === - 432.0078125) {
+            if (deltaX === -124.0078125)  {
                 placings[ballId] = 1;
-            } else if (deltaX === -304) {
+            } else if (deltaX === -316.0078125) {
                 placings[ballId] = 2; 
-            } else if (deltaX === -496) {
+            } else if (deltaX === -508.0078125) {
                 placings[ballId] = 3
             }
         }
-
-        console.log(deltaY, deltaX)
         
+        console.log(deltaX, deltaY)
         if (Object.keys(placings).length === 3) {
             evaluatePlacings(placings); 
             placings = {}; 

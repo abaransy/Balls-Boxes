@@ -11,18 +11,21 @@ let modal;
 let levelBox; 
 let seconds; 
 
-const resetBallsPosition = (balls) => {
+const resetBallsPositionAndColor = (balls) => {
     balls.forEach(ball => {
         ball.style.top = "0px";
         ball.style.right = "0px";
         ball.style.left = "0px";
         ball.style.bottom = "0px";
         ball.style.transform = "none";
+        ball.style.backgroundColor = "rgb(223, 22, 22)";
+        ball.style.borderColor = "rgb(131, 50, 50)";
     });
 }
 
 export const play = () => {
     balls = loadBalls();
+    balls.forEach(ball => ball.style.transition = "none"); 
     modal = document.getElementById("start_game_modal"); 
     levelBox = document.getElementById("level"); 
     seconds = document.getElementById('seconds'); 
@@ -39,12 +42,12 @@ export const play = () => {
     const shuffleBalls = () => {
         if (pairIdx === instructions.length) {
             clearInterval(interval); 
-            resetBallsPosition(balls); 
+            resetBallsPositionAndColor(balls); 
             modal.style.visibility = "hidden";
         } else {
             let pair = instructions[pairIdx]; 
             swapBalls(pair[0], pair[1]); 
-            resetBallsPosition(balls); 
+            resetBallsPositionAndColor(balls); 
         }
     }
 
@@ -58,11 +61,22 @@ const handleLoss = () => {
     console.log('lost')
 }
 
+const handleWinColors = () => {
+    balls.forEach(ball => {
+        ball.style.transition = "0.3s all";
+        ball.style.backgroundColor = "forestgreen"; 
+        ball.style.borderColor = "darkgreen"; 
+    }); 
+}
+
 const handleWin = () => {
     currLevelIdx++;
     currLevel = levels[currLevelIdx];
-    resetBallsPosition(balls);
-    setCountDown(seconds, false, modal, document.getElementById("start_button")); 
+    handleWinColors(); 
+    setTimeout( () => {
+        resetBallsPositionAndColor(balls);
+        setCountDown(seconds, false, modal, document.getElementById("start_button")); 
+    }, 500)
 }
 
 export const evaluatePlacings = (placings) => {
