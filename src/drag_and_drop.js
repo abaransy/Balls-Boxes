@@ -11,18 +11,18 @@ export const loadBalls = () => {
     let container = document.getElementsByClassName("scene")[0]; 
     let targets = [
         {
-        x: 166,
-        y: 423,
+        x: 168,
+        y: 476,
         center: true
         }, 
         {
-            x: 358,
-            y: 423,
+            x: 360,
+            y: 476,
             center: true
         }, 
         {
-            x: 550,
-            y: 423,
+            x: 552,
+            y: 476,
             center: true
         }
     ]
@@ -36,15 +36,17 @@ export const loadBalls = () => {
         let deltaX = sceneX - ballX; 
         let deltaY = sceneY - ballY; 
 
-        if (deltaY === -368.59375) {
-            if (deltaX === -111.59375)  {
+        if (deltaY === -420) {
+            if (deltaX === -112)  {
                 placings[ballId] = 1;
-            } else if (deltaX === -303.59375) {
+            } else if (deltaX === -304) {
                 placings[ballId] = 2; 
-            } else if (deltaX === -495.59375) {
+            } else if (deltaX === -496) {
                 placings[ballId] = 3
             }
         }
+
+        console.log(deltaY, deltaX)
         
         if (Object.keys(placings).length === 3) {
             evaluatePlacings(placings); 
@@ -55,7 +57,7 @@ export const loadBalls = () => {
     draggables.forEach(draggable => {
         draggable.containment = container; 
         draggable.snap = targets; 
-        draggable.zIndex = 2; 
+        draggable.zIndex = 3; 
         draggable.onDragEnd = () => updatePlacings(draggable.element.id);
     }); 
     

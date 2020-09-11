@@ -24,7 +24,7 @@ body {
 #level {
     position: absolute;
     width: 100vw;
-    margin-top: 1rem;  
+    margin-top: 1.5rem;  
     padding: 0.7rem 1.5rem; 
     text-align: center; 
     font-size: 2rem; 
@@ -47,21 +47,13 @@ body {
   overflow: auto; 
   background-color: rgba(0,0,0, 0.4);
   display: flex; 
-  justify-content: space-evenly;
-  align-items: center; 
-}
-
-.time_and_start {
-    position: relative; 
-    top: -20.5rem; 
-    height: 5rem; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-around; 
-    align-items: center;
+  justify-content: center;
+  align-items: flex-start; 
 }
 
 #start_button {
+    position: relative; 
+    top: 13.4rem; 
     font-size: 2rem; 
     font-weight: 500;
     color: #0E1D45; 
@@ -84,76 +76,49 @@ body {
 
 
 #seconds {
-    height: 1rem; 
+    height: 0rem; 
     font-size: 5rem;
     font-weight: 700;
-    color: #0E1D45; 
+    color: #0E1D45;
+    position: relative; 
+    top: 8rem;
+    z-index: 10000; 
 }
 
 .scene {
-    height: 38rem; 
-    width: 45rem;
+    margin-top: 8rem;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    height: 38.05rem;
+}
+
+.background_grid {
+    height: 38.05rem; 
+    width: 45rem; 
     position: relative; 
     top: 10%;
     display: flex; 
     flex-direction: column; 
     align-items: center; 
-    overflow: hidden;
     border: 0.1rem solid #133074;
     border-radius: 0.5rem;
     box-shadow: 0px 0.2rem 1rem #133074; 
 } 
 
-.background_grid {
-    width: 100% ; 
-    height: 40rem;
-}
-
-.ground {
-    width: 100%;  
-    height: 13rem;
-    position: relative; 
-    bottom: 15rem;  
-}
-
 .balls {
     position: relative; 
-    top: -20rem;
+    top: -22.55rem;
     width: 36rem; 
     display: flex;
+    align-items: center;
     justify-content: space-around; 
 }
 
 .ball {
-    position: relative; 
-    z-index: 2;
+    z-index: 3;
     height: 7rem; 
     width: 7rem; 
     outline: none; 
 }
 
-.snap_box {
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-}
-
-.snap {
-    height: 1rem; 
-    width: 1rem; 
-    background-color: red;
-}
-
-.boxes {
-    position: relative; 
-    top: -17rem; 
-    width: 30rem; 
-    display: flex;
-    justify-content: space-around; 
-    align-items: center;
-}
-
-.box {
-    height: 15rem; 
-    width: 12rem; 
-}
