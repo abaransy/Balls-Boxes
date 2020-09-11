@@ -1,161 +1,70 @@
 const firstBallId = "first_draggable_ball"; 
 const secondBallId = "second_draggable_ball"; 
 const thirdBallId = "third_draggable_ball"; 
+const IdToNumber = {
+    first_draggable_ball: 0, 
+    second_draggable_ball: 1,
+    third_draggable_ball: 2
+}
+const Ids = [firstBallId, secondBallId, thirdBallId];
 
-let level1 = {
-    instructions: [
-        [firstBallId, thirdBallId], 
-    ], 
+let levels = [];
+let initial = [1, 2, 3]; 
 
-    finalPlacings: {
-        "first_draggable_ball": 3 , 
-        "second_draggable_ball": 2, 
-        "third_draggable_ball": 1
-    }
+const getRandomInt = (max) => {
+    return Math.floor(Math.random() * Math.floor(max));
 }
 
-let level2 = {
-    instructions: [
-        [firstBallId, thirdBallId], 
-        [secondBallId, thirdBallId], 
-    ], 
+const resetInitial = () => {
+    initial = [1, 2, 3]; 
+}
+
+const swap = (first, second) => {
+    first = IdToNumber[first]; 
+    second = IdToNumber[second]; 
+    let temp = initial[first]; 
+    initial[first] = initial[second]; 
+    initial[second] = temp;
+}
+
+const createLevel = (steps) => {
+    let level = {
+        instructions: [],
+    };
+     
+    for(let i = 0; i < steps; i++) {
+        let firstIdIdx; 
+        let secondIdIdx;
+        
+        while ((!firstIdIdx && !secondIdIdx) || firstIdIdx >= secondIdIdx) {
+            firstIdIdx = getRandomInt(2); 
+            secondIdIdx = getRandomInt(3)
+        }
+        
+        level.instructions.push( [ Ids[firstIdIdx], Ids[secondIdIdx] ]); 
+    }
     
-    finalPlacings: {
-        "first_draggable_ball": 3, 
-        "second_draggable_ball": 1, 
-        "third_draggable_ball": 2
+    for(let i = 0; i < level.instructions.length; i++) {
+        let firstBall = level.instructions[i][0];
+        let secondBall = level.instructions[i][1];
+    
+        swap(firstBall, secondBall); 
     }
+    
+    level.finalPlacings = {
+        "first_draggable_ball": initial[0], 
+        "second_draggable_ball": initial[1], 
+        "third_draggable_ball": initial[2]
+    };  
+    
+    resetInitial(); 
+    
+    return level; 
 }
 
-
-let level3 = {
-    instructions: [
-        [firstBallId, secondBallId], 
-        [secondBallId, thirdBallId], 
-        [firstBallId, thirdBallId] 
-    ], 
-    
-    finalPlacings: {
-        "first_draggable_ball": 1, 
-        "second_draggable_ball": 3, 
-        "third_draggable_ball": 2
-    }
+export const createLevels = (numOfLevels) => {
+    for (let i = 0; i < numOfLevels; i++) levels.push(createLevel(i + 1)); 
+    return levels; 
 }
 
-let level4 = {
-    instructions: [
-        [secondBallId, thirdBallId], 
-        [firstBallId, thirdBallId], 
-        [firstBallId, secondBallId], 
-        [firstBallId, thirdBallId], 
-    ], 
-    
-    finalPlacings: {
-        "first_draggable_ball": 1, 
-        "second_draggable_ball": 2, 
-        "third_draggable_ball": 3
-    }
-}
-       
-let level5 = {
-    instructions: [
-        [firstBallId, secondBallId], 
-        [secondBallId, thirdBallId], 
-        [firstBallId, secondBallId], 
-        [secondBallId, thirdBallId], 
-        [firstBallId, thirdBallId] 
-    ], 
-    
-    finalPlacings: {
-        "first_draggable_ball": 2,
-        "second_draggable_ball": 1,
-        "third_draggable_ball": 3
-    }
-}
-
-let level6 = {
-    instructions: [
-        [firstBallId, secondBallId], 
-        [firstBallId, thirdBallId], 
-        [secondBallId, thirdBallId], 
-        [firstBallId, secondBallId], 
-        [firstBallId, thirdBallId],
-        [secondBallId, thirdBallId] 
-    ], 
-    
-    finalPlacings: {
-        "first_draggable_ball": 1,
-        "second_draggable_ball": 2,
-        "third_draggable_ball": 3
-    }
-}
-
-let level7 = {
-    instructions: [
-        [firstBallId, secondBallId],
-        [secondBallId, thirdBallId],
-        [firstBallId, secondBallId],
-        [secondBallId, thirdBallId],
-        [firstBallId, thirdBallId],
-        [firstBallId, secondBallId],
-        [secondBallId, thirdBallId] 
-    ], 
-    
-    finalPlacings: {
-        "first_draggable_ball": 1,
-        "second_draggable_ball": 3,
-        "third_draggable_ball": 2
-    }
-}
-
-let level8 = {
-    instructions: [
-        [firstBallId, secondBallId], 
-        [secondBallId, thirdBallId], 
-        [firstBallId, secondBallId], 
-        [secondBallId, thirdBallId], 
-        [firstBallId, thirdBallId] 
-    ], 
-    
-    finalPlacings: {
-        "first_draggable_ball": 2,
-        "second_draggable_ball": 1,
-        "third_draggable_ball": 3
-    }
-}
-
-let level9 = {
-    instructions: [
-        [firstBallId, secondBallId], 
-        [secondBallId, thirdBallId], 
-        [firstBallId, secondBallId], 
-        [secondBallId, thirdBallId], 
-        [firstBallId, thirdBallId] 
-    ], 
-    
-    finalPlacings: {
-        "first_draggable_ball": 2,
-        "second_draggable_ball": 1,
-        "third_draggable_ball": 3
-    }
-}
-       
-let level10 = {
-    instructions: [
-        [firstBallId, secondBallId], 
-        [secondBallId, thirdBallId], 
-        [firstBallId, secondBallId], 
-        [secondBallId, thirdBallId], 
-        [firstBallId, thirdBallId] 
-    ], 
-    
-    finalPlacings: {
-        "first_draggable_ball": 2,
-        "second_draggable_ball": 1,
-        "third_draggable_ball": 3
-    }
-}
-       
-
-let levels = [level1, level2, level3, level4, level5, level6, level7, level8, level9, level10]
-export default levels; 
+  

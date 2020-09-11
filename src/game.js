@@ -1,8 +1,9 @@
-import levels from './levels'; 
+import { createLevels } from './levels'; 
 import { swapBalls } from './swap_balls';  
 import { loadBalls } from './drag_and_drop'; 
 import { setCountDown } from './start_game_modal'; 
 
+let levels = createLevels(20); 
 let currLevelIdx = 0
 let currLevel = levels[currLevelIdx]; 
 let gameState;
@@ -89,10 +90,12 @@ export const evaluatePlacings = (placings) => {
 
     for (let ball in currLevel.finalPlacings) {
         if (currLevel.finalPlacings[ball] !== placings[ball]) {
-            lost = true; 
+            lost = true;
+            break; 
         } 
     }
-
+    console.log(currLevel.finalPlacings); 
+    console.log(placings); 
     if (lost) {
         handleLoss(); 
     } else {
