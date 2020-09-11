@@ -8,30 +8,27 @@ let level1 = {
     ], 
 
     finalPlacings: {
-        firstBallId: 3 , 
-        secondBallId: 2, 
-        thirdBallId: 1
+        "first_draggable_ball": 3 , 
+        "second_draggable_ball": 2, 
+        "third_draggable_ball": 1
     }
 }
 
-let levels = [level1]
+let level2 = {
+    instructions: [
+        [firstBallId, secondBallId], 
+        // [firstBallId, thirdBallId], 
+    ], 
+    
+    finalPlacings: {
+        "first_draggable_ball": 2, 
+        "second_draggable_ball": 1, 
+        "third_draggable_ball": 3
+    }
+}
+
+let levels = [level1, level2]
 export default levels; 
-// let level2 = {
-//     instructions: [
-//         [firstBallId, secondBallId], 
-//         [firstBallId, secondBallId], 
-//         [firstBallId, secondBallId], 
-//         [firstBallId, secondBallId], 
-//         [firstBallId, secondBallId], 
-//     ], 
-
-//     finalPlacings: {
-//         ballId: 1, 
-//         ballId: 3, 
-//         ballId: 4
-//     }
-// }
-
 // let level3 = {
 //     instructions: [
 //         [firstBallId, secondBallId], 

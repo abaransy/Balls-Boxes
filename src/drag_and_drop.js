@@ -1,8 +1,9 @@
 import { evaluatePlacings}  from './game'; 
 
-document.addEventListener("DOMContentLoaded", () => {
+export const loadBalls = () => {
     let scene = document.getElementsByClassName("scene")[0]; 
     let placings = {};
+    let balls = Array.from(document.getElementsByClassName("balls")[0].children);
     let firstDraggable = new PlainDraggable(document.getElementById("first_draggable_ball"));
     let secondDraggable = new PlainDraggable(document.getElementById("second_draggable_ball"));
     let thirdDraggable = new PlainDraggable(document.getElementById("third_draggable_ball"));
@@ -44,14 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 placings[ballId] = 3
             }
         }
-        // console.log(evaluatePlacings); 
-        if (Object.keys(placings).length === 3) evaluatePlacings(); 
+        
+        if (Object.keys(placings).length === 3) {
+            evaluatePlacings(placings); 
+            placings = {}; 
+        }
     }
 
     draggables.forEach(draggable => {
         draggable.containment = container; 
         draggable.snap = targets; 
         draggable.zIndex = 2; 
-        draggable.onDragEnd = () => updatePlacings(draggable.element.id)
+        draggable.onDragEnd = () => updatePlacings(draggable.element.id);
     }); 
-})
+    
+    return balls; 
+}
+

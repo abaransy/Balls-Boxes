@@ -122,7 +122,6 @@ body {
     width: 36rem; 
     display: flex;
     justify-content: space-around; 
-    transform-origin: 50% 50%;
 }
 
 .ball {

@@ -1,11 +1,29 @@
 import levels from './levels'; 
 import { swapBalls } from './swap_balls';  
+import { loadBalls } from './drag_and_drop'; 
 
 let currLevelIdx = 0
 let currLevel = levels[currLevelIdx]; 
 let score; 
- 
-export const play = (startGameModal, level, ...balls) => {
+let ballElements; 
+let modal; 
+let levelBox; 
+
+const resetBallsPosition = (balls) => {
+    balls.forEach(ball => {
+        ball.style.top = "0px";
+        ball.style.right = "0px";
+        ball.style.left = "0px";
+        ball.style.bottom = "0px";
+        ball.style.transform = "none"
+    });
+}
+
+export const play = (startGameModal, level) => {
+    ballElements = loadBalls();
+    modal = modal || startGameModal; 
+    levelBox = levelBox || level; 
+
     level.style.visibility = "visible"; 
     level.innerHTML = `Level ${currLevelIdx + 1}`; 
     startGameModal.style.opacity = "0"; 
@@ -15,17 +33,9 @@ export const play = (startGameModal, level, ...balls) => {
     let pair = instructions[pairIdx]; 
 
     const shuffleBalls = () => {
-        console.log(startGameModal); 
-        console.log(pairIdx) 
-        console.log(instructions.length); 
-
         if (pairIdx === instructions.length) {
             clearInterval(interval); 
-            balls.forEach(ball => {
-                ball.style.top = "";
-                ball.style.right = "";
-                ball.style.left = "";
-            });
+            resetBallsPosition(ballElements); 
             startGameModal.style.display = "none";
         } else {
             swapBalls(pair[0], pair[1]); 
@@ -38,6 +48,22 @@ export const play = (startGameModal, level, ...balls) => {
     }, 1000);
 }
 
-export const evaluatePlacings = () => {
-    console.log('evaluating placings') 
+
+export const evaluatePlacings = (placings) => {
+    let lost = false; 
+
+    for (let ball in currLevel.finalPlacings) {
+        if (currLevel.finalPlacings[ball] !== placings[ball]) {
+            lost = true; 
+        } 
+    }
+
+    if (lost) {
+        console.log('lost'); 
+    } else {
+        currLevelIdx++;
+        currLevel = levels[currLevelIdx]; 
+        resetBallsPosition(ballElements);
+        play(modal, levelBox); 
+    }
 }
