@@ -5,12 +5,17 @@ let currLevelIdx = 0
 let currLevel = levels[currLevelIdx]; 
 let score; 
  
-export const play = (...balls) => {
+export const play = (startGameModal, level, ...balls) => {
+    level.style.visibility = "visible"; 
+    level.innerHTML = `Level ${currLevelIdx + 1}`; 
+    startGameModal.style.opacity = "0"; 
+
     let instructions = currLevel.instructions; 
     let pairIdx = 0; 
     let pair = instructions[pairIdx]; 
 
     const shuffleBalls = () => {
+        console.log(startGameModal); 
         console.log(pairIdx) 
         console.log(instructions.length); 
 
@@ -21,6 +26,7 @@ export const play = (...balls) => {
                 ball.style.right = "";
                 ball.style.left = "";
             });
+            startGameModal.style.display = "none";
         } else {
             swapBalls(pair[0], pair[1]); 
         }

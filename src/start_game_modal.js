@@ -1,8 +1,10 @@
 import { play } from './game'; 
+import levels from './levels';
 
 document.addEventListener('DOMContentLoaded', () => {
     const [firstBall, secondBall, thirdBall] = Array.from(document.getElementsByClassName("balls"))[0].children; 
-    const disableUserInput = document.getElementById("disable_user_input");
+    const level = document.getElementById('level'); 
+    level.style.visibility = "hidden"; 
     const startGameModal = document.getElementById("start_game_modal"); 
     const startButton = document.getElementById("start_button"); 
     const secondsHtml = document.getElementById("seconds"); 
@@ -16,8 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const handleSeconds = () => {
             if (seconds === 1) {
                 clearInterval(interval); 
-                startGameModal.style.display = "none";
-                play(firstBall, secondBall, thirdBall);  
+                play(startGameModal, level, firstBall, secondBall, thirdBall);  
             } else { 
                 seconds -= 1; 
                 secondsHtml.innerHTML = seconds;
