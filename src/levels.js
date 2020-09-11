@@ -51,9 +51,9 @@ let level4 = {
     ], 
     
     finalPlacings: {
-        ballId: 1, 
-        ballId: 2, 
-        ballId: 3
+        "first_draggable_ball": 1, 
+        "second_draggable_ball": 2, 
+        "third_draggable_ball": 3
     }
 }
        
@@ -67,12 +67,95 @@ let level5 = {
     ], 
     
     finalPlacings: {
-        ballId: 2, 
-        ballId: 1, 
-        ballId: 3
+        "first_draggable_ball": 2,
+        "second_draggable_ball": 1,
+        "third_draggable_ball": 3
+    }
+}
+
+let level6 = {
+    instructions: [
+        [firstBallId, secondBallId], 
+        [firstBallId, thirdBallId], 
+        [secondBallId, thirdBallId], 
+        [firstBallId, secondBallId], 
+        [firstBallId, thirdBallId],
+        [secondBallId, thirdBallId] 
+    ], 
+    
+    finalPlacings: {
+        "first_draggable_ball": 1,
+        "second_draggable_ball": 2,
+        "third_draggable_ball": 3
+    }
+}
+
+let level7 = {
+    instructions: [
+        [firstBallId, secondBallId],
+        [secondBallId, thirdBallId],
+        [firstBallId, secondBallId],
+        [secondBallId, thirdBallId],
+        [firstBallId, thirdBallId],
+        [firstBallId, secondBallId],
+        [secondBallId, thirdBallId] 
+    ], 
+    
+    finalPlacings: {
+        "first_draggable_ball": 1,
+        "second_draggable_ball": 3,
+        "third_draggable_ball": 2
+    }
+}
+
+let level8 = {
+    instructions: [
+        [firstBallId, secondBallId], 
+        [secondBallId, thirdBallId], 
+        [firstBallId, secondBallId], 
+        [secondBallId, thirdBallId], 
+        [firstBallId, thirdBallId] 
+    ], 
+    
+    finalPlacings: {
+        "first_draggable_ball": 2,
+        "second_draggable_ball": 1,
+        "third_draggable_ball": 3
+    }
+}
+
+let level9 = {
+    instructions: [
+        [firstBallId, secondBallId], 
+        [secondBallId, thirdBallId], 
+        [firstBallId, secondBallId], 
+        [secondBallId, thirdBallId], 
+        [firstBallId, thirdBallId] 
+    ], 
+    
+    finalPlacings: {
+        "first_draggable_ball": 2,
+        "second_draggable_ball": 1,
+        "third_draggable_ball": 3
+    }
+}
+       
+let level10 = {
+    instructions: [
+        [firstBallId, secondBallId], 
+        [secondBallId, thirdBallId], 
+        [firstBallId, secondBallId], 
+        [secondBallId, thirdBallId], 
+        [firstBallId, thirdBallId] 
+    ], 
+    
+    finalPlacings: {
+        "first_draggable_ball": 2,
+        "second_draggable_ball": 1,
+        "third_draggable_ball": 3
     }
 }
        
 
-let levels = [level1, level2, level3, level4, level5]
+let levels = [level1, level2, level3, level4, level5, level6, level7, level8, level9, level10]
 export default levels; 

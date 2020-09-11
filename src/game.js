@@ -50,7 +50,7 @@ export const play = () => {
 }
 
 const handleLoss = () => {
-
+    console.log('lost')
 }
 
 const handleWin = () => {
