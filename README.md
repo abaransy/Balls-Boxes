@@ -118,3 +118,9 @@ The following code is run every millisecond during the swapping process.
 ```
 ### Gameplay
 ![game_play_gif](src/images/game_play.gif)
+
+
+### Music
+Enjoy J.S. Bach's Goldberg Variations, proven* to enhance your focusing powers. Feel free to turn the music of by clicking the music icon.
+
+*Proven through experience
