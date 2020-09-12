@@ -50,8 +50,7 @@ export const createLevel = (steps) => {
 
     //After the instructions array is generated, 
     //this function creates a finalPlacings Object
-    //that maps the balls with their original positions
-    //with the boxes.
+    //that maps the balls with their original positions.
 
     //Example: 
     // finalPlacings = {
