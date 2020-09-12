@@ -40,7 +40,12 @@ export const createLevel = (steps) => {
             secondIdIdx = getRandomInt(3)
         }
         
-        level.instructions.push( [ Ids[firstIdIdx], Ids[secondIdIdx] ]); 
+        level.instructions.push( 
+            [ 
+                Ids[firstIdIdx], 
+                Ids[secondIdIdx] 
+            ]
+        ); 
     }
     
     for(let i = 0; i < level.instructions.length; i++) {

@@ -46,16 +46,16 @@ export const play = () => {
     balls.forEach(ball => ball.style.transition = "none");
     startButton.style.display = "none"
 
-    let instructions = currLevel.instructions; 
+    let shuffleInstructions = currLevel.instructions; 
     let pairIdx = 0; 
     
     const shuffleBalls = () => {
-        if (pairIdx === instructions.length) {
+        if (pairIdx === shuffleInstructions.length) {
             clearInterval(interval); 
             resetBallsPositionAndColor(balls); 
             modal.style.visibility = "hidden";
         } else {
-            let pair = instructions[pairIdx]; 
+            let pair = shuffleInstructions[pairIdx]; 
             swapBalls(pair[0], pair[1]); 
             resetBallsPositionAndColor(balls); 
         }
