@@ -15,7 +15,6 @@ export const swapBalls = (firstBallId, secondBallId) => {
     let top = 0.1; 
     let left = 0; 
     let right = 0; 
-    let positive = false;
   
     const frame = () => {
         if (top == 0) {
@@ -26,9 +25,7 @@ export const swapBalls = (firstBallId, secondBallId) => {
             top = Math.sqrt( (2 * radius * left) - Math.pow(left, 2) );
 
             firstBall.style.transform = `translate( ${ `${left}px, ${-top}px` } )`;
-            secondBall.style.transform = `translate( ${ `${positive ? right : -right}px, ${-top}px` } )`;
-            // console.log(firstBall)
-            // console.log(secondBall)
+            secondBall.style.transform = `translate( ${ `${-right}px, ${-top}px` } )`;
         }
     }
 

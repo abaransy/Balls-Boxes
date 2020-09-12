@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let player = document.getElementById("player");
-    let togglePlayerButton = document.getElementById('toggle_player'); 
-    var isPlaying = false;
+    const player = document.getElementById("player");
+    const togglePlayerButton = document.getElementById('toggle_player'); 
+    let isPlaying = false;
     
     const togglePlay = () => {
         isPlaying ? player.pause() : player.play();

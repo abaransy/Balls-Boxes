@@ -31,7 +31,6 @@ export const play = () => {
     gameState = document.getElementsByClassName("game_state")[0]; 
     score = document.getElementById("score"); 
     balls = loadBalls();
-    balls.forEach(ball => ball.style.transition = "none"); 
     modal = document.getElementById("start_game_modal"); 
     levelBox = document.getElementById("level"); 
     seconds = document.getElementById('seconds'); 
