@@ -8,22 +8,22 @@ const IdToNumber = {
 }
 
 const Ids = [firstBallId, secondBallId, thirdBallId];
-let initial = [1, 2, 3]; 
+let placings = [1, 2, 3]; 
 
 const getRandomInt = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-const resetInitial = () => {
-    initial = [1, 2, 3]; 
+const resetPlacings = () => {
+    placings = [1, 2, 3]; 
 }
 
 const swap = (first, second) => {
     first = IdToNumber[first]; 
     second = IdToNumber[second]; 
-    let temp = initial[first]; 
-    initial[first] = initial[second]; 
-    initial[second] = temp;
+    let temp = placings[first]; 
+    placings[first] = placings[second]; 
+    placings[second] = temp;
 }
 
 export const createLevel = (steps) => {
@@ -56,12 +56,12 @@ export const createLevel = (steps) => {
     }
     
     level.finalPlacings = {
-        "first_draggable_ball": initial[0], 
-        "second_draggable_ball": initial[1], 
-        "third_draggable_ball": initial[2]
+        "first_draggable_ball": placings[0], 
+        "second_draggable_ball": placings[1], 
+        "third_draggable_ball": placings[2]
     };  
     
-    resetInitial(); 
+    resetPlacings(); 
     
     return level; 
 }

@@ -68,6 +68,8 @@ export const createLevel = (steps) => {
     // The evaluatePlacings algorithm, located in game.js, 
     // compares the user's answers with the finalPlacings object.
     
+    //This loop generates prepares the "placings" Array, which is used in the finalPlacings Object
+    //to map the balls to their final placings, as described above.
     for(let i = 0; i < level.instructions.length; i++) {
         let firstBall = level.instructions[i][0];
         let secondBall = level.instructions[i][1];
