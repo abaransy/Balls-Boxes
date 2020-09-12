@@ -76,6 +76,7 @@ const startNewGame = () => {
     instructionsHeader.style.color = "black"; 
     instructionsBox.style.height = "6rem";
     instructionsBox.style.width = "30rem";
+    instructionsBox.style.marginTop = "0rem";
     instructionsParagraph.innerHTML = "Your goal is to place the balls in the boxes that correspond with the balls' original ordering. You have 3 seconds between each level. Good luck!";
     startButton.style.visibility = "visible";  
     seconds.style.visibility = "visible";
@@ -98,6 +99,7 @@ const handleLoss = () => {
     instructionsBox.style.visibility = "visible"; 
     instructionsBox.style.height = "auto";
     instructionsBox.style.width = "auto";
+    instructionsBox.style.marginTop = "3rem";
     instructionsParagraph.innerHTML = ""; 
     modal.style.visibility = "visible"; 
     modal.style.opacity = "1"; 
