@@ -106,7 +106,7 @@ const handleLoss = () => {
     modal.style.opacity = "1"; 
     startButton.style.visibility = "hidden"; 
 
-    setTimeout(startNewGame, 1000); 
+    setTimeout(startNewGame, 800); 
 }
 
 const handleWinColors = () => {
