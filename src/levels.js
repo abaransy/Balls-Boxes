@@ -6,9 +6,8 @@ const IdToNumber = {
     second_draggable_ball: 1,
     third_draggable_ball: 2
 }
-const Ids = [firstBallId, secondBallId, thirdBallId];
 
-let levels = [];
+const Ids = [firstBallId, secondBallId, thirdBallId];
 let initial = [1, 2, 3]; 
 
 const getRandomInt = (max) => {
@@ -27,7 +26,7 @@ const swap = (first, second) => {
     initial[second] = temp;
 }
 
-const createLevel = (steps) => {
+export const createLevel = (steps) => {
     let level = {
         instructions: [],
     };
@@ -62,9 +61,9 @@ const createLevel = (steps) => {
     return level; 
 }
 
-export const createLevels = (numOfLevels) => {
-    for (let i = 0; i < numOfLevels; i++) levels.push(createLevel(i + 1)); 
-    return levels; 
-}
+// export const createLevels = (numOfLevels) => {
+//     for (let i = 0; i < numOfLevels; i++) levels.push(createLevel(i + 1)); 
+//     return levels; 
+// }
 
   

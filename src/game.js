@@ -1,11 +1,10 @@
-import { createLevels } from './levels'; 
+import { createLevel } from './levels'; 
 import { swapBalls } from './swap_balls';  
 import { loadBalls } from './drag_and_drop'; 
 import { setCountDown } from './start_game_modal'; 
 
-let levels = createLevels(20); 
 let currLevelIdx = 0
-let currLevel = levels[currLevelIdx]; 
+let currLevel = createLevel(currLevelIdx + 1);
 let instructionsBox;
 let gameState;
 let score; 
@@ -82,9 +81,8 @@ const startNewGame = () => {
     startButton.style.visibility = "visible";  
     seconds.style.visibility = "visible";
     seconds.innerHTML = ""; 
-    levels = createLevels(20); 
     currLevelIdx = 0;
-    currLevel = levels[currLevelIdx];
+    currLevel = createLevel(currLevelIdx + 1);
     score.innerHTML = "Your Score: 0";
     startButton.style.display = "block";
 }
@@ -120,7 +118,7 @@ const handleWinColors = () => {
 const handleWin = () => {
     score.innerHTML = `Your Score: ${1000 * (currLevelIdx + 1)}`;
     currLevelIdx++;
-    currLevel = levels[currLevelIdx];
+    currLevel = createLevel(currLevelIdx + 1);
     handleWinColors(); 
     setTimeout( () => {
         resetBallsPositionAndColor(balls);
