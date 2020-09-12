@@ -21,7 +21,7 @@ export const setCountDown = (secondsHtml, clicked, modal, startButton) => {
         secondsHtml.innerHTML = "";
     }
 
-    // console.log(secondsHtml); 
+    
     let seconds; 
     if (clicked) return; 
     clicked = true; 

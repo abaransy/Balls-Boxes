@@ -1,5 +1,4 @@
 import { evaluatePlacings}  from './game'; 
-const PlainDraggable = require('../node_modules/plain-draggable/plain-draggable.min.js'); 
 
 export const loadBalls = () => {
     let scene = document.getElementsByClassName("scene")[0]; 

@@ -9,6 +9,7 @@ let currLevel = levels[currLevelIdx];
 let instructionsBox;
 let gameState;
 let score; 
+let startButton;
 let balls; 
 let modal; 
 let levelBox; 
@@ -35,6 +36,7 @@ export const play = () => {
     modal = document.getElementById("start_game_modal"); 
     levelBox = document.getElementById("level"); 
     seconds = document.getElementById('seconds'); 
+    startButton = document.getElementById("start_button"); 
 
     instructionsBox.style.visibility ="hidden"; 
     gameState.style.visibility = "visible"; 
@@ -43,6 +45,7 @@ export const play = () => {
     modal.style.visibility = "visible"; 
     seconds.style.visibility = "hidden"; 
     balls.forEach(ball => ball.style.transition = "none");
+    startButton.style.display = "none"
 
     let instructions = currLevel.instructions; 
     let pairIdx = 0; 
@@ -68,8 +71,7 @@ export const play = () => {
 const startNewGame = () => {
     let instructionsHeader = instructionsBox.children[0];
     let instructionsParagraph = instructionsBox.children[1]; 
-    let startButton = document.getElementById("start_button"); 
-    
+   
     balls.forEach(ball => ball.style.transition = "0.3s all");
     resetBallsPositionAndColor(balls);
     instructionsHeader.innerHTML = "Instructions"; 
@@ -84,13 +86,13 @@ const startNewGame = () => {
     currLevelIdx = 0;
     currLevel = levels[currLevelIdx];
     score.innerHTML = "Your Score: 0";
+    startButton.style.display = "block";
 }
 
 const handleLoss = () => {
     let gameOver = instructionsBox.children[0]; 
     let instructionsParagraph = instructionsBox.children[1]; 
-    let startButton = document.getElementById("start_button"); 
-    
+  
     instructionsBox.style.transition = "0.1s all"; 
     gameOver.innerHTML = "Incorrect"
     gameOver.style.color = "red";

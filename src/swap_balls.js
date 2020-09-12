@@ -16,9 +16,7 @@ export const swapBalls = (firstBallId, secondBallId) => {
     let left = 0; 
     let right = 0; 
     let positive = false;
-    // if (firstBallId === "second_draggable_ball" && secondBallId === "third_draggable_ball") {
-    //     positive = false; 
-    // } 
+  
     const frame = () => {
         if (top == 0) {
             clearInterval(interval);
