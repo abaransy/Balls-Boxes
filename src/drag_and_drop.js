@@ -1,4 +1,5 @@
 import { evaluatePlacings}  from './game'; 
+const PlainDraggable = require('../node_modules/plain-draggable/plain-draggable.min.js'); 
 
 export const loadBalls = () => {
     let scene = document.getElementsByClassName("scene")[0]; 
@@ -29,25 +30,23 @@ export const loadBalls = () => {
     
     const updatePlacings = (ballId) => {
         let ball = document.getElementById(ballId); 
-        let ballX = ball.getBoundingClientRect().x
-        let ballY = ball.getBoundingClientRect().y
-        let sceneX = scene.getBoundingClientRect().x
-        let sceneY = scene.getBoundingClientRect().y
+        let ballX = ball.getBoundingClientRect().x.toFixed(0)
+        let ballY = ball.getBoundingClientRect().y.toFixed(0)
+        let sceneX = scene.getBoundingClientRect().x.toFixed(0)
+        let sceneY = scene.getBoundingClientRect().y.toFixed(0)
         let deltaX = sceneX - ballX; 
         let deltaY = sceneY - ballY; 
-        //y = 432.0078125
-        //x 124 316 512
-        if (deltaY === - 432.0078125) {
-            if (deltaX === -124.0078125)  {
+   
+        if (deltaY === -432) {
+            if (deltaX === -124)  {
                 placings[ballId] = 1;
-            } else if (deltaX === -316.0078125) {
+            } else if (deltaX === -316) {
                 placings[ballId] = 2; 
-            } else if (deltaX === -508.0078125) {
-                placings[ballId] = 3
+            } else if (deltaX === -508) {
+                placings[ballId] = 3;
             }
         }
         
-        console.log(deltaX, deltaY)
         if (Object.keys(placings).length === 3) {
             evaluatePlacings(placings); 
             placings = {}; 

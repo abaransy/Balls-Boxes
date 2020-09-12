@@ -42,6 +42,7 @@ export const play = () => {
     modal.style.opacity = "0"; 
     modal.style.visibility = "visible"; 
     seconds.style.visibility = "hidden"; 
+    balls.forEach(ball => ball.style.transition = "none");
 
     let instructions = currLevel.instructions; 
     let pairIdx = 0; 
@@ -64,8 +65,46 @@ export const play = () => {
     }, 1500);
 }
 
+const startNewGame = () => {
+    let instructionsHeader = instructionsBox.children[0];
+    let instructionsParagraph = instructionsBox.children[1]; 
+    let startButton = document.getElementById("start_button"); 
+    
+    balls.forEach(ball => ball.style.transition = "0.3s all");
+    resetBallsPositionAndColor(balls);
+    instructionsHeader.innerHTML = "Instructions"; 
+    instructionsHeader.style.color = "black"; 
+    instructionsBox.style.height = "6rem";
+    instructionsBox.style.width = "30rem";
+    instructionsParagraph.innerHTML = "Your goal is to place the balls in the boxes that correspond with the balls' original ordering. You have 3 seconds between each level. Good luck!";
+    startButton.style.visibility = "visible";  
+    seconds.style.visibility = "visible";
+    seconds.innerHTML = ""; 
+    levels = createLevels(20); 
+    currLevelIdx = 0;
+    currLevel = levels[currLevelIdx];
+    score.innerHTML = "Your Score: 0";
+}
+
 const handleLoss = () => {
-    console.log('lost')
+    let gameOver = instructionsBox.children[0]; 
+    let instructionsParagraph = instructionsBox.children[1]; 
+    let startButton = document.getElementById("start_button"); 
+    
+    instructionsBox.style.transition = "0.1s all"; 
+    gameOver.innerHTML = "Incorrect"
+    gameOver.style.color = "red";
+    gameOver.style.fontWeight = "700"; 
+    gameState.style.visibility = "hidden"; 
+    instructionsBox.style.visibility = "visible"; 
+    instructionsBox.style.height = "auto";
+    instructionsBox.style.width = "auto";
+    instructionsParagraph.innerHTML = ""; 
+    modal.style.visibility = "visible"; 
+    modal.style.opacity = "1"; 
+    startButton.style.visibility = "hidden"; 
+
+    setTimeout(startNewGame, 1000); 
 }
 
 const handleWinColors = () => {
@@ -77,14 +116,14 @@ const handleWinColors = () => {
 }
 
 const handleWin = () => {
-    score.innerHTML = `Your Score: ${1000 * (currLevelIdx + 1)}`
+    score.innerHTML = `Your Score: ${1000 * (currLevelIdx + 1)}`;
     currLevelIdx++;
     currLevel = levels[currLevelIdx];
     handleWinColors(); 
     setTimeout( () => {
         resetBallsPositionAndColor(balls);
         setCountDown(seconds, false, modal, document.getElementById("start_button")); 
-    }, 500)
+    }, 1000)
 }
 
 export const evaluatePlacings = (placings) => {
@@ -96,8 +135,7 @@ export const evaluatePlacings = (placings) => {
             break; 
         } 
     }
-    console.log(currLevel.finalPlacings); 
-    console.log(placings); 
+
     if (lost) {
         handleLoss(); 
     } else {

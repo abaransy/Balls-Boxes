@@ -25,7 +25,7 @@ body {
 .game_state {
     position: absolute;
     display: flex;
-    width: 10rem; 
+    width: 12rem; 
     height: 5rem;
     flex-direction: column;
     justify-content: space-between;
@@ -145,4 +145,25 @@ body {
     width: 5.3rem;  
     border: 0.1rem solid rgb(131, 50, 50);
     outline: none; 
+}
+
+#toggle_player {
+    background-color: #F5F5F5;
+    position: relative; 
+    top: 7rem; 
+    z-index: 1000;
+    padding: 0.75rem 1rem; 
+    border-radius: 0.2rem;
+    transition: background 0.2s;
+    box-shadow: 0px 0.2rem 1rem rgb(182, 202, 182); 
+}
+
+#toggle_player:hover {
+    background-color: rgb(112, 121, 112); 
+    cursor: pointer;
+}
+
+#music_icon {
+    height: 2rem; 
+    width: 2rem; 
 }
