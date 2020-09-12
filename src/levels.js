@@ -65,10 +65,3 @@ export const createLevel = (steps) => {
     
     return level; 
 }
-
-// export const createLevels = (numOfLevels) => {
-//     for (let i = 0; i < numOfLevels; i++) levels.push(createLevel(i + 1)); 
-//     return levels; 
-// }
-
-  
