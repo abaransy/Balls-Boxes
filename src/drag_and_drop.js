@@ -11,9 +11,9 @@ export const loadBalls = () => {
     let container = document.getElementsByClassName("scene")[0]; 
     let targets = [
         {
-        x: 168,
-        y: 476,
-        center: true
+            x: 168,
+            y: 476,
+            center: true
         }, 
         {
             x: 360,
@@ -25,7 +25,7 @@ export const loadBalls = () => {
             y: 476,
             center: true
         }
-    ]
+    ];
     
     const updatePlacings = (ballId) => {
         let ball = document.getElementById(ballId); 
