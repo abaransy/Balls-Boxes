@@ -105,7 +105,7 @@ The following code is run every millisecond during the swapping process.
             //The position of the ball on the x-axis changes linearly, shifting 3 pixels every millisecond. 
             left += 3; 
             right += 3;
-            //the position of the ball on the y-axis changes according to the formula y = sqrt(2rx - x^2),, which represents a semi circle 
+            //the position of the ball on the y-axis changes according to the formula y = sqrt(2rx - x^2), which represents a semi circle 
             top = Math.sqrt( (2 * radius * left) - Math.pow(left, 2) );
 
             //the position of the balls is shifted using CSS transfrom
