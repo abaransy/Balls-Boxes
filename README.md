@@ -121,6 +121,4 @@ The following code is run every millisecond during the swapping process.
 
 
 ### Music
-Enjoy J.S. Bach's Goldberg Variations, proven* to enhance your focusing powers. Feel free to turn the music off by clicking the music icon.
-
-*proven through experience
+Enjoy J.S. Bach's Goldberg Variations. Feel free to turn the music off by clicking the music icon.
