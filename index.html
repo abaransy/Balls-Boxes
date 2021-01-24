@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script src="dist/main.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <audio id="player">
         <source src="./src/audio/goldberg_variations.mp3">
@@ -23,10 +25,11 @@
             <div class="instructions">
                 <h1 class="instructions_header">Instructions</h1>
                 <p>
-                    Your goal is to place the balls in the boxes that correspond with the balls' original ordering. You have 3 seconds between each level. Good luck!
+                    Your goal is to place the balls in the boxes that correspond with the balls' original ordering. The
+                    balls should snap into position once you drag them to the box. Good luck!
                 </p>
             </div>
-        </div> 
+        </div>
         <span id="seconds"></span>
         <img class="background_grid" src="./src/images/scene.png" alt="">
         <div class="balls">
@@ -36,8 +39,9 @@
         </div>
     </div>
     <div id="toggle_player">
-        <img id="music_icon" src="./src/images/music_icon .png"/>
+        <img id="music_icon" src="./src/images/music_icon .png" />
         <span id="mute">/</span>
     </div>
 </body>
+
 </html>
